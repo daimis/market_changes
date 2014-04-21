@@ -59,7 +59,6 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Compile Include="Download.cs" />
     <Compile Include="Entities\Sector.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

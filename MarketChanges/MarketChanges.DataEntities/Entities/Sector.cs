@@ -8,9 +8,9 @@ namespace MarketChanges.DataEntities.Entities
 {
     class Sector
     {
-        public class Sector
+        public class Sectors
         {
-            public virtual string SectorName();
+            //public virtual string SectorName();
         }
     }
 }
