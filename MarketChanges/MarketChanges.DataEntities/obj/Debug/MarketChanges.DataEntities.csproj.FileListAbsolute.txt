@@ -1,0 +1,11 @@
+c:\users\dainius\documents\visual studio 2013\Projects\MarketChanges\MarketChanges.DataEntities\bin\Debug\MarketChanges.DataEntities.dll
+c:\users\dainius\documents\visual studio 2013\Projects\MarketChanges\MarketChanges.DataEntities\bin\Debug\MarketChanges.DataEntities.pdb
+c:\users\dainius\documents\visual studio 2013\Projects\MarketChanges\MarketChanges.DataEntities\obj\Debug\MarketChanges.DataEntities.csprojResolveAssemblyReference.cache
+c:\users\dainius\documents\visual studio 2013\Projects\MarketChanges\MarketChanges.DataEntities\obj\Debug\MarketChanges.DataEntities.dll
+c:\users\dainius\documents\visual studio 2013\Projects\MarketChanges\MarketChanges.DataEntities\obj\Debug\MarketChanges.DataEntities.pdb
+c:\users\dainius\documents\visual studio 2013\Projects\MarketChanges\MarketChanges.DataEntities\bin\Debug\FluentNHibernate.dll
+c:\users\dainius\documents\visual studio 2013\Projects\MarketChanges\MarketChanges.DataEntities\bin\Debug\Iesi.Collections.dll
+c:\users\dainius\documents\visual studio 2013\Projects\MarketChanges\MarketChanges.DataEntities\bin\Debug\NHibernate.dll
+c:\users\dainius\documents\visual studio 2013\Projects\MarketChanges\MarketChanges.DataEntities\bin\Debug\FluentNHibernate.xml
+c:\users\dainius\documents\visual studio 2013\Projects\MarketChanges\MarketChanges.DataEntities\bin\Debug\Iesi.Collections.xml
+c:\users\dainius\documents\visual studio 2013\Projects\MarketChanges\MarketChanges.DataEntities\bin\Debug\NHibernate.xml
