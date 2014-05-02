@@ -1,23 +1,22 @@
-c:\users\dainius\documents\visual studio 2013\Projects\MarketChanges\MarketChanges.DataEntities\bin\Debug\MarketChanges.DataEntities.dll
-c:\users\dainius\documents\visual studio 2013\Projects\MarketChanges\MarketChanges.DataEntities\bin\Debug\MarketChanges.DataEntities.pdb
-c:\users\dainius\documents\visual studio 2013\Projects\MarketChanges\MarketChanges.DataEntities\obj\Debug\MarketChanges.DataEntities.csprojResolveAssemblyReference.cache
-c:\users\dainius\documents\visual studio 2013\Projects\MarketChanges\MarketChanges.DataEntities\obj\Debug\MarketChanges.DataEntities.dll
-c:\users\dainius\documents\visual studio 2013\Projects\MarketChanges\MarketChanges.DataEntities\obj\Debug\MarketChanges.DataEntities.pdb
-c:\users\dainius\documents\visual studio 2013\Projects\MarketChanges\MarketChanges.DataEntities\bin\Debug\FluentNHibernate.dll
-c:\users\dainius\documents\visual studio 2013\Projects\MarketChanges\MarketChanges.DataEntities\bin\Debug\Iesi.Collections.dll
-c:\users\dainius\documents\visual studio 2013\Projects\MarketChanges\MarketChanges.DataEntities\bin\Debug\NHibernate.dll
-c:\users\dainius\documents\visual studio 2013\Projects\MarketChanges\MarketChanges.DataEntities\bin\Debug\FluentNHibernate.xml
-c:\users\dainius\documents\visual studio 2013\Projects\MarketChanges\MarketChanges.DataEntities\bin\Debug\Iesi.Collections.xml
-c:\users\dainius\documents\visual studio 2013\Projects\MarketChanges\MarketChanges.DataEntities\bin\Debug\NHibernate.xml
+C:\Repository\MarketChanges\DevBridge.Templates.WebProject.DataEntities\bin\Debug\MarketChanges.DataEntities.dll
+C:\Repository\MarketChanges\DevBridge.Templates.WebProject.DataEntities\bin\Debug\MarketChanges.DataEntities.pdb
+C:\Repository\MarketChanges\DevBridge.Templates.WebProject.DataEntities\bin\Debug\FluentNHibernate.dll
+C:\Repository\MarketChanges\DevBridge.Templates.WebProject.DataEntities\bin\Debug\Iesi.Collections.dll
+C:\Repository\MarketChanges\DevBridge.Templates.WebProject.DataEntities\bin\Debug\NHibernate.dll
+C:\Repository\MarketChanges\DevBridge.Templates.WebProject.DataEntities\bin\Debug\FluentNHibernate.xml
+C:\Repository\MarketChanges\DevBridge.Templates.WebProject.DataEntities\bin\Debug\Iesi.Collections.xml
+C:\Repository\MarketChanges\DevBridge.Templates.WebProject.DataEntities\bin\Debug\NHibernate.xml
+C:\Repository\MarketChanges\DevBridge.Templates.WebProject.DataEntities\obj\Debug\MarketChanges.DataEntities.csprojResolveAssemblyReference.cache
+C:\Repository\MarketChanges\DevBridge.Templates.WebProject.DataEntities\obj\Debug\MarketChanges.DataEntities.dll
+C:\Repository\MarketChanges\DevBridge.Templates.WebProject.DataEntities\obj\Debug\MarketChanges.DataEntities.pdb
+C:\Repository\MarketChanges\MarketChanges.DataEntities\obj\Debug\MarketChanges.DataEntities.csprojResolveAssemblyReference.cache
+C:\Repository\MarketChanges\MarketChanges.DataEntities\obj\Debug\MarketChanges.DataEntities.dll
+C:\Repository\MarketChanges\MarketChanges.DataEntities\obj\Debug\MarketChanges.DataEntities.pdb
 C:\Repository\MarketChanges\MarketChanges.DataEntities\bin\Debug\MarketChanges.DataEntities.dll
 C:\Repository\MarketChanges\MarketChanges.DataEntities\bin\Debug\MarketChanges.DataEntities.pdb
 C:\Repository\MarketChanges\MarketChanges.DataEntities\bin\Debug\FluentNHibernate.dll
 C:\Repository\MarketChanges\MarketChanges.DataEntities\bin\Debug\Iesi.Collections.dll
 C:\Repository\MarketChanges\MarketChanges.DataEntities\bin\Debug\NHibernate.dll
-C:\Repository\MarketChanges\MarketChanges.DataEntities\bin\Debug\YSQ.core.dll
 C:\Repository\MarketChanges\MarketChanges.DataEntities\bin\Debug\FluentNHibernate.xml
 C:\Repository\MarketChanges\MarketChanges.DataEntities\bin\Debug\Iesi.Collections.xml
 C:\Repository\MarketChanges\MarketChanges.DataEntities\bin\Debug\NHibernate.xml
-C:\Repository\MarketChanges\MarketChanges.DataEntities\bin\Debug\YSQ.core.pdb
-C:\Repository\MarketChanges\MarketChanges.DataEntities\obj\Debug\MarketChanges.DataEntities.dll
-C:\Repository\MarketChanges\MarketChanges.DataEntities\obj\Debug\MarketChanges.DataEntities.pdb
