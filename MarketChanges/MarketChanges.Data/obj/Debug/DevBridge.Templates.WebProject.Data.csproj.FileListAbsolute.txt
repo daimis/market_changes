@@ -1,0 +1,15 @@
+C:\Repository\MarketChanges\DevBridge.Templates.WebProject.Data\bin\Debug\DevBridge.Templates.WebProject.Data.dll
+C:\Repository\MarketChanges\DevBridge.Templates.WebProject.Data\bin\Debug\DevBridge.Templates.WebProject.Data.pdb
+C:\Repository\MarketChanges\DevBridge.Templates.WebProject.Data\bin\Debug\DevBridge.Templates.WebProject.DataContracts.dll
+C:\Repository\MarketChanges\DevBridge.Templates.WebProject.Data\bin\Debug\FluentNHibernate.dll
+C:\Repository\MarketChanges\DevBridge.Templates.WebProject.Data\bin\Debug\Iesi.Collections.dll
+C:\Repository\MarketChanges\DevBridge.Templates.WebProject.Data\bin\Debug\NHibernate.dll
+C:\Repository\MarketChanges\DevBridge.Templates.WebProject.Data\bin\Debug\DevBridge.Templates.WebProject.DataContracts.pdb
+C:\Repository\MarketChanges\DevBridge.Templates.WebProject.Data\bin\Debug\FluentNHibernate.xml
+C:\Repository\MarketChanges\DevBridge.Templates.WebProject.Data\bin\Debug\Iesi.Collections.xml
+C:\Repository\MarketChanges\DevBridge.Templates.WebProject.Data\bin\Debug\NHibernate.xml
+C:\Repository\MarketChanges\DevBridge.Templates.WebProject.Data\obj\Debug\DevBridge.Templates.WebProject.Data.csprojResolveAssemblyReference.cache
+C:\Repository\MarketChanges\DevBridge.Templates.WebProject.Data\obj\Debug\DevBridge.Templates.WebProject.Data.dll
+C:\Repository\MarketChanges\DevBridge.Templates.WebProject.Data\obj\Debug\DevBridge.Templates.WebProject.Data.pdb
+C:\Repository\MarketChanges\DevBridge.Templates.WebProject.Data\bin\Debug\MarketChanges.DataEntities.dll
+C:\Repository\MarketChanges\DevBridge.Templates.WebProject.Data\bin\Debug\MarketChanges.DataEntities.pdb
