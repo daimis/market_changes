@@ -8,10 +8,11 @@ using MarketChanges.GetDataServices;
 
 namespace MarketChanges.GetData.CompanyServices
 {
-    class CompanyServices : ICompanyServices
+    public class CompanyServices : ICompanyServices
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
+        private string industryName;
         private string companySymbol;
         private string companyName;
 
@@ -32,6 +33,23 @@ namespace MarketChanges.GetData.CompanyServices
             {
                 companyName = value;
                 if (PropertyChanged != null) PropertyChanged(this, new PropertyChangedEventArgs("CompanyName"));
+            }
+        }
+
+        public CompanyServices(string iName, string sName, string sSymbol)
+        {
+            this.industryName = iName;
+            this.companyName = sName;
+            this.companySymbol = sSymbol;
+        }
+
+        public string IndustryName
+        {
+            get { return industryName; }
+            set
+            {
+                industryName = value;
+                if (PropertyChanged != null) PropertyChanged(this, new PropertyChangedEventArgs("sectorName"));
             }
         }
 

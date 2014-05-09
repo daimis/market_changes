@@ -8,7 +8,7 @@ using MarketChanges.GetDataServices;
 
 namespace MarketChanges.GetData.QueteServices
 {
-    class Quote : IQuoteServices
+    public class Quote : IQuoteServices
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -41,7 +41,6 @@ namespace MarketChanges.GetData.QueteServices
         private decimal? changeFromTwoHundredDayMovingAverage;
         private decimal? percentChangeFromFiftyDayMovingAverage;
         private string name;
-        private decimal? open;
         private decimal? previousClose;
         private decimal? changeInPercent;
         private decimal? priceSales;
@@ -247,7 +246,7 @@ namespace MarketChanges.GetData.QueteServices
         }
 
 
-        public decimal? Open
+        /*public decimal? Open
         {
             get { return open; }
             set
@@ -255,7 +254,7 @@ namespace MarketChanges.GetData.QueteServices
                 open = value;
                 if (PropertyChanged != null) PropertyChanged(this, new PropertyChangedEventArgs("Open"));
             }
-        }
+        }*/
 
 
         public string Name

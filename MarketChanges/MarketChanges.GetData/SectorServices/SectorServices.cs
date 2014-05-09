@@ -14,12 +14,7 @@ namespace MarketChanges.GetData.SectorServices
         public event PropertyChangedEventHandler PropertyChanged;
 
         private string sectorName;
-        private string industryName;
-
-        /*public SectorServices(string ticker)
-        {
-            sectorName = ticker;
-        }*/
+        private IList<string> industryName;
 
         public string SectorName
         {
@@ -31,7 +26,7 @@ namespace MarketChanges.GetData.SectorServices
             }
         }
 
-        public string IndustryName
+        public IList<string> IndustryName
         {
             get { return industryName; }
             set

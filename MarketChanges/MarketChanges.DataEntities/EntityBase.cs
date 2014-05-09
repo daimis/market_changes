@@ -13,7 +13,7 @@
 
             set { Id = (int)value; }
         }
-
+        
         public static bool operator ==(EntityBase<TEntity> x, EntityBase<TEntity> y)
         {
             return Equals(x as TEntity, y as TEntity);

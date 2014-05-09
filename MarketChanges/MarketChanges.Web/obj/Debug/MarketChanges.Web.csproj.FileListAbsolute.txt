@@ -1,3 +1,4 @@
+C:\Repository\MarketChanges\MarketChanges.Web\obj\Debug\MarketChanges.Web.csprojResolveAssemblyReference.cache
 C:\Repository\MarketChanges\MarketChanges.Web\bin\MarketChanges.Web.dll.config
 C:\Repository\MarketChanges\MarketChanges.Web\bin\MarketChanges.Web.dll
 C:\Repository\MarketChanges\MarketChanges.Web\bin\MarketChanges.Web.pdb
@@ -10,7 +11,11 @@ C:\Repository\MarketChanges\MarketChanges.Web\bin\DotNetOpenAuth.OpenId.dll
 C:\Repository\MarketChanges\MarketChanges.Web\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
 C:\Repository\MarketChanges\MarketChanges.Web\bin\EntityFramework.dll
 C:\Repository\MarketChanges\MarketChanges.Web\bin\FluentNHibernate.dll
-C:\Repository\MarketChanges\MarketChanges.Web\bin\Iesi.Collections.dll
+C:\Repository\MarketChanges\MarketChanges.Web\bin\MarketChanges.Data.dll
+C:\Repository\MarketChanges\MarketChanges.Web\bin\MarketChanges.DataContracts.dll
+C:\Repository\MarketChanges\MarketChanges.Web\bin\MarketChanges.DataEntities.dll
+C:\Repository\MarketChanges\MarketChanges.Web\bin\MarketChanges.GetData.dll
+C:\Repository\MarketChanges\MarketChanges.Web\bin\MarketChanges.GetDataServices.dll
 C:\Repository\MarketChanges\MarketChanges.Web\bin\Microsoft.Data.Edm.dll
 C:\Repository\MarketChanges\MarketChanges.Web\bin\Microsoft.Data.OData.dll
 C:\Repository\MarketChanges\MarketChanges.Web\bin\Microsoft.Web.Infrastructure.dll
@@ -33,8 +38,14 @@ C:\Repository\MarketChanges\MarketChanges.Web\bin\System.Web.WebPages.Razor.dll
 C:\Repository\MarketChanges\MarketChanges.Web\bin\WebGrease.dll
 C:\Repository\MarketChanges\MarketChanges.Web\bin\WebMatrix.Data.dll
 C:\Repository\MarketChanges\MarketChanges.Web\bin\WebMatrix.WebData.dll
+C:\Repository\MarketChanges\MarketChanges.Web\bin\Iesi.Collections.dll
+C:\Repository\MarketChanges\MarketChanges.Web\bin\MarketChanges.DataContracts.pdb
+C:\Repository\MarketChanges\MarketChanges.Web\bin\MarketChanges.DataEntities.pdb
+C:\Repository\MarketChanges\MarketChanges.Web\bin\MarketChanges.Data.pdb
+C:\Repository\MarketChanges\MarketChanges.Web\bin\MarketChanges.GetDataServices.pdb
+C:\Repository\MarketChanges\MarketChanges.Web\bin\MarketChanges.GetData.pdb
 C:\Repository\MarketChanges\MarketChanges.Web\bin\FluentNHibernate.xml
-C:\Repository\MarketChanges\MarketChanges.Web\bin\Iesi.Collections.xml
+C:\Repository\MarketChanges\MarketChanges.Web\bin\NHibernate.pdb
 C:\Repository\MarketChanges\MarketChanges.Web\bin\NHibernate.xml
 C:\Repository\MarketChanges\MarketChanges.Web\bin\EntityFramework.xml
 C:\Repository\MarketChanges\MarketChanges.Web\bin\Newtonsoft.Json.xml
@@ -87,6 +98,7 @@ C:\Repository\MarketChanges\MarketChanges.Web\bin\ko\System.Spatial.resources.dl
 C:\Repository\MarketChanges\MarketChanges.Web\bin\ru\System.Spatial.resources.dll
 C:\Repository\MarketChanges\MarketChanges.Web\bin\zh-Hans\System.Spatial.resources.dll
 C:\Repository\MarketChanges\MarketChanges.Web\bin\zh-Hant\System.Spatial.resources.dll
-C:\Repository\MarketChanges\MarketChanges.Web\obj\Debug\MarketChanges.Web.csprojResolveAssemblyReference.cache
 C:\Repository\MarketChanges\MarketChanges.Web\obj\Debug\MarketChanges.Web.dll
 C:\Repository\MarketChanges\MarketChanges.Web\obj\Debug\MarketChanges.Web.pdb
+C:\Repository\MarketChanges\MarketChanges.Web\bin\Iesi.Collections.pdb
+C:\Repository\MarketChanges\MarketChanges.Web\bin\Iesi.Collections.xml

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Threading;
 using MarketChanges.Data;
 using MarketChanges.DataContracts;
 using MarketChanges.DataEntities.Entities;
@@ -11,44 +13,86 @@ using System.Collections.ObjectModel;
 using System.Transactions;
 using MarketChanges.GetDataServices;
 using MarketChanges.GetData.SectorServices;
+using MarketChanges.GetData.CompanyServices;
 using NHibernate.Criterion;
 using MarketChanges.GetData;
-using System.Windows.Threading;
-using Test;
 using System.Xml.Linq;
-
 
 namespace Test
 {
     class Program
     {
-        private const string BASE_URL = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20geo.countries%20where%20place%3D%22North%20America%22&diagnostics=true&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys";
-
         private static readonly ISessionFactoryProvider SessionFactoryProvider = new SessionFactoryProvider();
 
-        public static ObservableCollection<ISectorServices> Sectors { get; set; }
+        private static readonly DispatcherTimer timer = new DispatcherTimer(DispatcherPriority.Background);
+
+        private static IList<Company> cmp = new List<Company>();
+
+        public static ObservableCollection<IQuoteServices> Quotes { get; set; }
 
         static void Main(string[] args)
         {
-            Sectors = new ObservableCollection<ISectorServices>();
-
-            YahooMarketSectors.Fetch(Sectors);
-
-            System.Console.ReadLine();
-        }
-
-        private static void CreateSector()
-        {
-
-
             IRepository repository = new Repository(SessionFactoryProvider);
 
-            var sector = new Sector
-            {
-                SectorName = "TestFirstName"
-            };
+            Quotes = new ObservableCollection<IQuoteServices>();
 
-            repository.Save(sector);
+            //YahooMarketSectors.Fetch();
+            //YahooMarketCompanies.Fetch();
+
+            //Some example tickers
+            //get the data
+
+            Company companyAlias = null;
+
+            var cmp = repository
+                .AsQueryOver(() => companyAlias)
+                .Where(Restrictions.On(() => companyAlias.CompanySymbol).IsNotNull)
+                .List();
+
+            int limit = 0;
+            foreach (Company c in cmp)
+            {
+                Quotes.Add(new MarketChanges.GetData.QueteServices.Quote(c.CompanySymbol));
+                limit++;
+                if (limit == 150 || c == cmp.Last<Company>())
+                {
+                    YahooMarketQuotes.Fetch(Quotes);
+                    limit = 0;
+                    Quotes = new ObservableCollection<IQuoteServices>();
+                }
+            }
+
+            
+            //poll every 30 seconds
+            //timer.Interval = new TimeSpan(0, 0, 3600);
+            //timer.Tick += (o, e) => YahooMarketQuotes.Fetch(Quotes);                  
+            //timer.Start();
+
+            Console.WriteLine("Baige");
+            Console.ReadLine();
+        }
+
+        private static bool HasElements()
+        {
+            IRepository repository = new Repository(SessionFactoryProvider);
+
+            Sector sectorAlias = null;
+
+            var list = repository
+                .AsQueryOver(() => sectorAlias)
+                .Where(Restrictions.On(() => sectorAlias.Id).IsNotNull)
+                .List();
+
+            if (list.Count > 0)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        private static void CompaniesSymbolList(IList<Company> companies)
+        {
+            
 
         }
 

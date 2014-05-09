@@ -19,5 +19,12 @@ namespace MarketChanges.GetDataServices
             get;
             set;
         }
+
+        string IndustryName
+        {
+            get;
+            set;
+        }
+
     }
 }

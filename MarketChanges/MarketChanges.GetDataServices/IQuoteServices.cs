@@ -8,6 +8,11 @@ namespace MarketChanges.GetDataServices
 {
     public interface IQuoteServices
     {
+        DateTime LastUpdate
+        {
+            get;
+            set;
+        }
 
         string StockExchange
         {
@@ -105,11 +110,11 @@ namespace MarketChanges.GetDataServices
             set;
         }
 
-        decimal? Open
+        /*decimal? Open
         {
             get;
             set;
-        }
+        }*/
 
         string Name
         {

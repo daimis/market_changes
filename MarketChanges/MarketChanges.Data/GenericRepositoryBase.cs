@@ -145,5 +145,6 @@ namespace MarketChanges.Data
         {
             session.Refresh(entity);
         }
+
     }
 }

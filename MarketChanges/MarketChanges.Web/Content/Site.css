@@ -1,4 +1,72 @@
-﻿html {
+﻿#body {
+    background-color:cyan;
+    clear: both;
+    padding-bottom: 35px;
+    margin-left: 250px;
+}
+
+#header
+{
+    background-color:lightgrey;
+    color:white;
+    padding:2px;
+}
+
+#content
+{
+    float:left;
+    margin:10px;
+    margin-top:90px;
+}
+
+#sidebar
+{
+    float:left;
+    margin:10px;
+    margin-top:75px;
+    padding:10px;
+    border:solid 5px darkblue;
+    width:180px;
+    height:750px;
+}
+
+#footer
+{
+    text-align:center;
+    padding-bottom:inherit;
+    clear:both;
+}
+
+.wrapper {
+
+    min-height: 100%;
+    height: 100%;
+    margin: 0 auto -6.25em;
+}
+
+.header {
+    width: 100%;
+    height: 100px;
+    background-color: #000000;
+    margin: 0 auto;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+}
+
+.content {
+    width: 1000px;
+    border: 1px solid #ff0000;
+    margin: 0 auto;
+    height: 100%;
+    min-height: 100%;
+}
+
+#right-side
+{
+    float:right;
+    margin:20px;
+}
+html {
     background-color: #e2e2e2;
     margin: 0;
     padding: 0;
@@ -153,7 +221,7 @@ footer {
 }
 
     #login a {
-        background-color: #d3dce0;
+        background-color: lightblue;
         margin-left: 10px;
         margin-right: 3px;
         padding: 2px 3px;
@@ -332,7 +400,7 @@ aside {
 #loginForm {
     border-right: solid 2px #c8c8c8;
     float: left;
-    width: 55%;
+    width: 30%;
 }
 
     #loginForm .validation-error {
@@ -365,7 +433,7 @@ aside {
 #socialLoginForm {
     margin-left: 40px;
     float: left;
-    width: 40%;
+    width: 20%;
 }
 
     #socialLoginForm h2 {

@@ -3,12 +3,24 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Xml.Linq;
 using MarketChanges.GetDataServices;
+using MarketChanges.DataContracts;
+using MarketChanges.Data;
+using MarketChanges.Data.DataContext;
+using System.Transactions;
+using MarketChanges.DataEntities.Entities;
+using NHibernate.Criterion;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace MarketChanges.GetData
 {
     public class YahooMarketQuotes
     {
         private const string BASE_URL = "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo.finance.quotes%20where%20symbol%20in%20({0})&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys";
+
+        //private const string BASE_URL = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo.finance.quotes%20where%20symbol%20in%20%28select%20company.symbol%20from%20yahoo.finance.industry%20where%20id%20%3D%20({0})%29&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys";
+
+        private static readonly ISessionFactoryProvider SessionFactoryProvider = new SessionFactoryProvider();
 
         public static void Fetch(ObservableCollection<IQuoteServices> quotes)
         {
@@ -23,55 +35,94 @@ namespace MarketChanges.GetData
         {
             XElement results = doc.Root.Element("results");
 
-            foreach (IQuoteServices quote in quotes)
+            IRepository repository = new Repository(SessionFactoryProvider);
+
+            Company comAlias = null;
+
+            IRepository rep = new Repository(SessionFactoryProvider);
+
+            var list = rep
+                .AsQueryOver(() => comAlias)
+                .Where(Restrictions.On(() => comAlias.Id).IsNotNull)
+                .List();
+
+            Company comp = new Company();
+
+            foreach (var quote in quotes)
             {
-                XElement q = results.Elements("quote").First(w => w.Attribute("symbol").Value == quote.Symbol);
+                XElement q = null;
+                if (results.Elements("quote").Any(w => w.Attribute("symbol").Value == quote.Symbol))
+                {
+                    q = results.Elements("quote").First(w => w.Attribute("symbol").Value == quote.Symbol);
+                }
 
-                quote.Ask = GetDecimal(q.Element("Ask").Value);
-                quote.Bid = GetDecimal(q.Element("Bid").Value);
-                quote.AverageDailyVolume = GetDecimal(q.Element("AverageDailyVolume").Value);
-                quote.BookValue = GetDecimal(q.Element("BookValue").Value);
-                quote.Change = GetDecimal(q.Element("Change").Value);
-                quote.DividendShare = GetDecimal(q.Element("DividendShare").Value);
-                quote.LastTradeDate = GetDateTime(q.Element("LastTradeDate") + " " + q.Element("LastTradeTime").Value);
-                quote.EarningsShare = GetDecimal(q.Element("EarningsShare").Value);
-                quote.EpsEstimateCurrentYear = GetDecimal(q.Element("EPSEstimateCurrentYear").Value);
-                quote.EpsEstimateNextYear = GetDecimal(q.Element("EPSEstimateNextYear").Value);
-                quote.EpsEstimateNextQuarter = GetDecimal(q.Element("EPSEstimateNextQuarter").Value);
-                quote.DailyLow = GetDecimal(q.Element("DaysLow").Value);
-                quote.DailyHigh = GetDecimal(q.Element("DaysHigh").Value);
-                quote.YearlyLow = GetDecimal(q.Element("YearLow").Value);
-                quote.YearlyHigh = GetDecimal(q.Element("YearHigh").Value);
-                quote.MarketCapitalization = GetDecimal(q.Element("MarketCapitalization").Value);
-                quote.Ebitda = GetDecimal(q.Element("EBITDA").Value);
-                quote.ChangeFromYearLow = GetDecimal(q.Element("ChangeFromYearLow").Value);
-                quote.PercentChangeFromYearLow = GetDecimal(q.Element("PercentChangeFromYearLow").Value);
-                quote.ChangeFromYearHigh = GetDecimal(q.Element("ChangeFromYearHigh").Value);
-                quote.LastTradePrice = GetDecimal(q.Element("LastTradePriceOnly").Value);
-                quote.PercentChangeFromYearHigh = GetDecimal(q.Element("PercebtChangeFromYearHigh").Value); //missspelling in yahoo for field name
-                quote.FiftyDayMovingAverage = GetDecimal(q.Element("FiftydayMovingAverage").Value);
-                quote.TwoHunderedDayMovingAverage = GetDecimal(q.Element("TwoHundreddayMovingAverage").Value);
-                quote.ChangeFromTwoHundredDayMovingAverage = GetDecimal(q.Element("ChangeFromTwoHundreddayMovingAverage").Value);
-                quote.PercentChangeFromTwoHundredDayMovingAverage = GetDecimal(q.Element("PercentChangeFromTwoHundreddayMovingAverage").Value);
-                quote.PercentChangeFromFiftyDayMovingAverage = GetDecimal(q.Element("PercentChangeFromFiftydayMovingAverage").Value);
-                quote.Name = q.Element("Name").Value;
-                quote.Open = GetDecimal(q.Element("Open").Value);
-                quote.PreviousClose = GetDecimal(q.Element("PreviousClose").Value);
-                quote.ChangeInPercent = GetDecimal(q.Element("ChangeinPercent").Value);
-                quote.PriceSales = GetDecimal(q.Element("PriceSales").Value);
-                quote.PriceBook = GetDecimal(q.Element("PriceBook").Value);
-                quote.ExDividendDate = GetDateTime(q.Element("ExDividendDate").Value);
-                quote.PeRatio = GetDecimal(q.Element("PERatio").Value);
-                quote.DividendPayDate = GetDateTime(q.Element("DividendPayDate").Value);
-                quote.PegRatio = GetDecimal(q.Element("PEGRatio").Value);
-                quote.PriceEpsEstimateCurrentYear = GetDecimal(q.Element("PriceEPSEstimateCurrentYear").Value);
-                quote.PriceEpsEstimateNextYear = GetDecimal(q.Element("PriceEPSEstimateNextYear").Value);
-                quote.ShortRatio = GetDecimal(q.Element("ShortRatio").Value);
-                quote.OneYearPriceTarget = GetDecimal(q.Element("OneyrTargetPrice").Value);
-                quote.Volume = GetDecimal(q.Element("Volume").Value);
-                quote.StockExchange = q.Element("StockExchange").Value;
+                foreach (var i in list)
+                {
+                    if (i.CompanySymbol == quote.Symbol)
+                    {
+                        comp = i;
+                    }
+                }
+                if (q != null && q.Element("ErrorIndicationreturnedforsymbolchangedinvalid").Value == "")
+                {
+                    using (var transaction = new TransactionScope())
+                    {
+                        var quoteData = new Quote()
+                        {
+                            Company = comp,
+                            LastUpdate = DateTime.Now,
+                            Ask = GetDecimal(q.Element("Ask").Value),
+                            Bid = GetDecimal(q.Element("Bid").Value),
+                            AverageDailyVolume = GetDecimal(q.Element("AverageDailyVolume").Value),
+                            BookValue = GetDecimal(q.Element("BookValue").Value),
+                            Change = GetDecimal(q.Element("Change").Value),
+                            DividendShare = GetDecimal(q.Element("DividendShare").Value),
+                            LastTradeDate = GetDateTime(q.Element("LastTradeDate") + " " + q.Element("LastTradeTime").Value),
+                            EarningsShare = GetDecimal(q.Element("EarningsShare").Value),
+                            EpsEstimateCurrentYear = GetDecimal(q.Element("EPSEstimateCurrentYear").Value),
+                            EpsEstimateNextYear = GetDecimal(q.Element("EPSEstimateNextYear").Value),
+                            EpsEstimateNextQuarter = GetDecimal(q.Element("EPSEstimateNextQuarter").Value),
+                            DailyLow = GetDecimal(q.Element("DaysLow").Value),
+                            DailyHigh = GetDecimal(q.Element("DaysHigh").Value),
+                            YearlyLow = GetDecimal(q.Element("YearLow").Value),
+                            YearlyHigh = GetDecimal(q.Element("YearHigh").Value),
+                            MarketCapitalization = GetDecimal(q.Element("MarketCapitalization").Value),
+                            Ebitda = GetDecimal(q.Element("EBITDA").Value),
+                            ChangeFromYearLow = GetDecimal(q.Element("ChangeFromYearLow").Value),
+                            PercentChangeFromYearLow = GetDecimal(q.Element("PercentChangeFromYearLow").Value),
+                            ChangeFromYearHigh = GetDecimal(q.Element("ChangeFromYearHigh").Value),
+                            LastTradePrice = GetDecimal(q.Element("LastTradePriceOnly").Value),
+                            PercentChangeFromYearHigh = GetDecimal(q.Element("PercebtChangeFromYearHigh").Value),
+                            FiftyDayMovingAverage = GetDecimal(q.Element("FiftydayMovingAverage").Value),
+                            TwoHunderedDayMovingAverage = GetDecimal(q.Element("TwoHundreddayMovingAverage").Value),
+                            ChangeFromTwoHundredDayMovingAverage = GetDecimal(q.Element("ChangeFromTwoHundreddayMovingAverage").Value),
+                            PercentChangeFromTwoHundredDayMovingAverage = GetDecimal(q.Element("PercentChangeFromTwoHundreddayMovingAverage").Value),
+                            PercentChangeFromFiftyDayMovingAverage = GetDecimal(q.Element("PercentChangeFromFiftydayMovingAverage").Value),
+                            PreviousClose = GetDecimal(q.Element("PreviousClose").Value),
+                            ChangeInPercent = GetDecimal(q.Element("ChangeinPercent").Value),
+                            PriceSales = GetDecimal(q.Element("PriceSales").Value),
+                            PriceBook = GetDecimal(q.Element("PriceBook").Value),
+                            ExDividendDate = GetDateTime(q.Element("ExDividendDate").Value),
+                            PeRatio = GetDecimal(q.Element("PERatio").Value),
+                            DividendPayDate = GetDateTime(q.Element("DividendPayDate").Value),
+                            PegRatio = GetDecimal(q.Element("PEGRatio").Value),
+                            PriceEpsEstimateCurrentYear = GetDecimal(q.Element("PriceEPSEstimateCurrentYear").Value),
+                            PriceEpsEstimateNextYear = GetDecimal(q.Element("PriceEPSEstimateNextYear").Value),
+                            ShortRatio = GetDecimal(q.Element("ShortRatio").Value),
+                            OneYearPriceTarget = GetDecimal(q.Element("OneyrTargetPrice").Value),
+                            Volume = GetDecimal(q.Element("Volume").Value),
+                            StockExchange = q.Element("StockExchange").Value
+                        };
+                        repository.Save(quoteData);
 
-                //quote.LastUpdate = DateTime.Now;
+                        repository.Commit();
+                        transaction.Complete();
+                    }
+                } else
+                {
+                    rep.Delete<Company>(comp);
+                    rep.Commit();
+                }
             }
         }
 
@@ -647,6 +698,11 @@ namespace MarketChanges.GetData
             {
                 throw new NotImplementedException();
             }
+        }
+
+        public static void Fetch(ObservableCollection<QueteServices.Quote> Quotes)
+        {
+            throw new NotImplementedException();
         }
     }
 }

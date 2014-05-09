@@ -14,7 +14,7 @@ namespace MarketChanges.GetDataServices
             set;
         }
 
-        string IndustryName
+        IList<string> IndustryName
         {
             get;
             set;

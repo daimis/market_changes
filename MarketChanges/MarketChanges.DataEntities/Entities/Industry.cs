@@ -10,6 +10,8 @@ namespace MarketChanges.DataEntities.Entities
     {
         public virtual string IndustryName { get; set; }
 
-        //public virtual IList<Company> Companies { get; set; }
+        public virtual Sector Sector { get; set; }
+
+        public virtual IList<Company> Companies { get; set; }
     }
 }

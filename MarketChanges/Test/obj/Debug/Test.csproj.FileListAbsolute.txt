@@ -1,9 +1,7 @@
+C:\Repository\MarketChanges\Test\bin\Debug\Config\hibernate-configuration.config
 C:\Repository\MarketChanges\Test\bin\Debug\Test.exe.config
 C:\Repository\MarketChanges\Test\bin\Debug\Test.exe
 C:\Repository\MarketChanges\Test\bin\Debug\Test.pdb
-C:\Repository\MarketChanges\Test\obj\Debug\Test.exe
-C:\Repository\MarketChanges\Test\obj\Debug\Test.pdb
-C:\Repository\MarketChanges\Test\obj\Debug\Test.csprojResolveAssemblyReference.cache
 C:\Repository\MarketChanges\Test\bin\Debug\FluentNHibernate.dll
 C:\Repository\MarketChanges\Test\bin\Debug\Iesi.Collections.dll
 C:\Repository\MarketChanges\Test\bin\Debug\MarketChanges.Data.dll
@@ -21,3 +19,6 @@ C:\Repository\MarketChanges\Test\bin\Debug\FluentNHibernate.xml
 C:\Repository\MarketChanges\Test\bin\Debug\Iesi.Collections.xml
 C:\Repository\MarketChanges\Test\bin\Debug\NHibernate.pdb
 C:\Repository\MarketChanges\Test\bin\Debug\NHibernate.xml
+C:\Repository\MarketChanges\Test\obj\Debug\Test.csprojResolveAssemblyReference.cache
+C:\Repository\MarketChanges\Test\obj\Debug\Test.exe
+C:\Repository\MarketChanges\Test\obj\Debug\Test.pdb

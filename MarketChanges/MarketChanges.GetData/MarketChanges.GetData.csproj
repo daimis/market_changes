@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FluentNHibernate">
+      <HintPath>..\packages\FluentNHibernate.1.4.0.0\lib\net35\FluentNHibernate.dll</HintPath>
+    </Reference>
     <Reference Include="Iesi.Collections">
       <HintPath>..\packages\Iesi.Collections.3.2.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
     </Reference>
@@ -40,6 +43,7 @@
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -62,6 +66,18 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MarketChanges.DataContracts\MarketChanges.DataContracts.csproj">
+      <Project>{a8169073-cfd3-4959-9281-b5f3e58538eb}</Project>
+      <Name>MarketChanges.DataContracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MarketChanges.DataEntities\MarketChanges.DataEntities.csproj">
+      <Project>{0048b7e5-07ac-472d-92da-342cd9ef45d9}</Project>
+      <Name>MarketChanges.DataEntities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MarketChanges.Data\MarketChanges.Data.csproj">
+      <Project>{0dd4f9fb-8361-4847-aa04-3fe3afba7c75}</Project>
+      <Name>MarketChanges.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MarketChanges.GetDataServices\MarketChanges.GetDataServices.csproj">
       <Project>{27af4eea-4507-4790-b8cb-524a97a04603}</Project>
       <Name>MarketChanges.GetDataServices</Name>

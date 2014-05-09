@@ -13,7 +13,9 @@ namespace MarketChanges.DataEntities.Mappings
         {
             Map(m => m.IndustryName).Length(40).Not.Nullable();
 
-            //HasMany(m => m.Companies);
+            References(m => m.Sector);
+
+            HasMany(m => m.Companies);
         }
     }
 }
