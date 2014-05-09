@@ -1,0 +1,10 @@
+﻿@{
+    ViewBag.Title = "Categories";
+}
+
+<h2>Categories</h2>
+
+@foreach (var s in ViewBag.Sectors)
+{
+    <ul><li>@s.SectorName</li></ul>
+}

@@ -1,0 +1,10 @@
+﻿@{
+    ViewBag.Title = "CompanyInfo";
+}
+
+@using MarketChanges.Web.Models
+@model CompanyListModel
+
+<h2>Company Info</h2>
+
+@Html.DropDownListFor(model => model.companyList, Model.DropDownList, "-- Select Status --")
