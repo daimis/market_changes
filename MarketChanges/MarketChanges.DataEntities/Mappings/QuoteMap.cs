@@ -14,6 +14,9 @@ namespace MarketChanges.DataEntities.Mappings
             Map(q => q.LastUpdate).Not.Nullable();
 
             Map(q => q.Ask).Nullable();
+            Map(q => q.AskRealtime).Nullable();
+            Map(q => q.BidRealtime).Nullable();
+            Map(q => q.ChangeRealtime).Nullable();
             Map(q => q.Bid).Nullable();
             Map(q => q.AverageDailyVolume);
             Map(q => q.BookValue);

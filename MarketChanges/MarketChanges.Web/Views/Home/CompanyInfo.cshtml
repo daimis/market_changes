@@ -1,10 +1,102 @@
-﻿@{
-    ViewBag.Title = "CompanyInfo";
+﻿@model MarketChanges.Web.Models.Home.MyCompanyNames
+@using MarketChanges.DataEntities.Entities
+@using MarketChanges.Web.Filters
+@{
+    ViewBag.Title = "Company Info";
+}
+<h2>
+    Company Info
+</h2>
+@using (Html.BeginForm())
+{
+    <div>
+        @Html.LabelFor(m => m.cmpName, "Write company name")
+        @Html.TextBoxFor(m => m.cmpName, new { data_autocomplete_url = Url.Action("Autocomplete") })
+        <input type="submit" name="test" value="View" />
+    </div>
 }
 
-@using MarketChanges.Web.Models
-@model CompanyListModel
-
-<h2>Company Info</h2>
-
-@Html.DropDownListFor(model => model.companyList, Model.DropDownList, "-- Select Status --")
+@{
+    var oneCmp = (Company)ViewData["OneCompany"];
+    var oneCmpBad = (string)ViewData["OneCompanyBad"];
+    var oneQuote = (Quote)ViewData["OneQuote"];
+}
+<div>
+    @if (oneCmp != null)
+    {
+        <h2>Company symbol: @oneCmp.CompanySymbol</h2>
+        if (oneQuote.PreviousClose != null)
+        {
+            <h4>Previous close: $@oneQuote.PreviousClose.Value.ToString("F")</h4>
+        }
+        if (oneQuote.MarketCapitalization != null)
+        {
+            <h5>Market Cap: @oneQuote.MarketCapitalization.Value.ToString("F")</h5>
+        }
+        if (oneQuote.Change != null)
+        {
+            <p>Change: $@oneQuote.Change.Value.ToString("F")</p>
+        }
+        if (oneQuote.ChangeInPercent != null)
+        {
+            <p>Change (in percent): @oneQuote.ChangeInPercent.Value.ToString("F")%</p>
+        }
+        if (oneQuote.Volume != null)
+        {
+            <p>Volume: @oneQuote.Volume.Value.ToString("#")</p>
+        }
+        if (oneQuote.Ask != null)
+        {
+            <p>Ask: $@oneQuote.Ask.Value.ToString("F")</p>
+        }
+        if (oneQuote.DailyLow != null)
+        {
+            <p>Days Low: $@oneQuote.DailyLow.Value.ToString("F")</p>
+        }
+        if (oneQuote.YearlyLow != null)
+        {
+            <p>Yearly Low: $@oneQuote.YearlyLow.Value.ToString("F")</p>
+        }
+        if (oneQuote.DailyHigh != null)
+        {
+            <p>Days High: $@oneQuote.DailyHigh.Value.ToString("F")</p>
+        }
+        if (oneQuote.YearlyHigh != null)
+        {
+            <p>Yearly High: $@oneQuote.YearlyHigh.Value.ToString("F")</p>
+        }
+        if (oneQuote.PeRatio != null)
+        {
+            <p>P/E ratio: @oneQuote.PeRatio.Value.ToString("F")</p>
+        }
+        if (oneQuote.LastTradeDate != null)
+        {
+            <p>Last trade date: @oneQuote.LastTradeDate</p>
+        }
+        if (oneQuote.LastTradePrice != null)
+        {
+            <p>Last trade price: $@oneQuote.LastTradePrice.Value.ToString("F")</p>
+        }
+        if (oneQuote.LastUpdate != null)
+        {
+            <p>Last update: @oneQuote.LastUpdate</p>
+        }
+    }
+    else
+    {
+        if (oneCmpBad != null)
+        {
+            <h2>@oneCmpBad</h2>
+        }
+        else
+        {
+            <h2>Please select the company!</h2>
+        }
+    }
+</div>
+<div>
+@{
+    var oneCompanyChart = (DotNet.Highcharts.Highcharts)ViewData["OneCompanyChart"];
+}
+    @oneCompanyChart
+</div> 

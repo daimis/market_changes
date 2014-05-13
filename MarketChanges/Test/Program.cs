@@ -63,7 +63,7 @@ namespace Test
             }
 
             
-            //poll every 30 seconds
+            //poll every 3600 seconds
             //timer.Interval = new TimeSpan(0, 0, 3600);
             //timer.Tick += (o, e) => YahooMarketQuotes.Fetch(Quotes);                  
             //timer.Start();

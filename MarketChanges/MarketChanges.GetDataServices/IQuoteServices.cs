@@ -14,6 +14,24 @@ namespace MarketChanges.GetDataServices
             set;
         }
 
+        decimal? AskRealtime
+        {
+            get;
+            set;
+        }
+
+        decimal? BidRealtime
+        {
+            get;
+            set;
+        }
+
+        decimal? ChangeRealtime
+        {
+            get;
+            set;
+        }
+
         string StockExchange
         {
             get;

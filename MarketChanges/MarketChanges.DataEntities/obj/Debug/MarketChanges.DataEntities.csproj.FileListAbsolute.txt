@@ -17,6 +17,6 @@ C:\Repository\MarketChanges\MarketChanges.DataEntities\bin\Debug\NHibernate.dll
 C:\Repository\MarketChanges\MarketChanges.DataEntities\bin\Debug\FluentNHibernate.xml
 C:\Repository\MarketChanges\MarketChanges.DataEntities\bin\Debug\Iesi.Collections.xml
 C:\Repository\MarketChanges\MarketChanges.DataEntities\bin\Debug\NHibernate.xml
+C:\Repository\MarketChanges\MarketChanges.DataEntities\obj\Debug\MarketChanges.DataEntities.csprojResolveAssemblyReference.cache
 C:\Repository\MarketChanges\MarketChanges.DataEntities\obj\Debug\MarketChanges.DataEntities.dll
 C:\Repository\MarketChanges\MarketChanges.DataEntities\obj\Debug\MarketChanges.DataEntities.pdb
-C:\Repository\MarketChanges\MarketChanges.DataEntities\obj\Debug\MarketChanges.DataEntities.csprojResolveAssemblyReference.cache

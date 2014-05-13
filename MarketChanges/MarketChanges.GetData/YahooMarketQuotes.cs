@@ -11,6 +11,7 @@ using MarketChanges.DataEntities.Entities;
 using NHibernate.Criterion;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 
 namespace MarketChanges.GetData
 {
@@ -72,10 +73,13 @@ namespace MarketChanges.GetData
                             Company = comp,
                             LastUpdate = DateTime.Now,
                             Ask = GetDecimal(q.Element("Ask").Value),
+                            AskRealtime = GetDecimal(q.Element("AskRealtime").Value),
                             Bid = GetDecimal(q.Element("Bid").Value),
+                            BidRealtime = GetDecimal(q.Element("BidRealtime").Value),
                             AverageDailyVolume = GetDecimal(q.Element("AverageDailyVolume").Value),
                             BookValue = GetDecimal(q.Element("BookValue").Value),
                             Change = GetDecimal(q.Element("Change").Value),
+                            ChangeRealtime = GetDecimal(q.Element("ChangeRealtime").Value),
                             DividendShare = GetDecimal(q.Element("DividendShare").Value),
                             LastTradeDate = GetDateTime(q.Element("LastTradeDate") + " " + q.Element("LastTradeTime").Value),
                             EarningsShare = GetDecimal(q.Element("EarningsShare").Value),
@@ -120,8 +124,8 @@ namespace MarketChanges.GetData
                     }
                 } else
                 {
-                    rep.Delete<Company>(comp);
-                    rep.Commit();
+                    //rep.Delete<Company>(comp);
+                    //rep.Commit();
                 }
             }
         }
@@ -131,10 +135,12 @@ namespace MarketChanges.GetData
             if (input == null) return null;
 
             input = input.Replace("%", "");
-
             decimal value;
 
-            if (Decimal.TryParse(input, out value)) return value;
+            if (Decimal.TryParse(input, NumberStyles.Any, new CultureInfo("en-US"), out value))
+            {
+                return value;
+            }
             return null;
         }
 

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>scalejs.base-jquery</id>
+    <version>1.9.1</version>
+    <authors>jQuery Foundation and other contributors</authors>
+    <owners>jQuery Foundation and other contributors</owners>
+    <licenseUrl>https://github.com/jquery/jquery/blob/master/MIT-LICENSE.txt</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>jQuery base for scalable JavaScript application. Will install official jQuery and jQuery.Migrate nugets and then will configure config.js file (if present)</description>
+    <tags>JavaScript scalejs jQuery</tags>
+    <dependencies>
+      <dependency id="jQuery" version="[1.9.1]" />
+      <dependency id="jQuery.Migrate" version="[1.1.1]" />
+    </dependencies>
+  </metadata>
+</package>

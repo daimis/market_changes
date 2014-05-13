@@ -2,6 +2,7 @@ C:\Repository\MarketChanges\Test\bin\Debug\Config\hibernate-configuration.config
 C:\Repository\MarketChanges\Test\bin\Debug\Test.exe.config
 C:\Repository\MarketChanges\Test\bin\Debug\Test.exe
 C:\Repository\MarketChanges\Test\bin\Debug\Test.pdb
+C:\Repository\MarketChanges\Test\bin\Debug\DotNet.Highcharts.dll
 C:\Repository\MarketChanges\Test\bin\Debug\FluentNHibernate.dll
 C:\Repository\MarketChanges\Test\bin\Debug\Iesi.Collections.dll
 C:\Repository\MarketChanges\Test\bin\Debug\MarketChanges.Data.dll

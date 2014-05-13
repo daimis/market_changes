@@ -13,10 +13,10 @@
 }
 
 #content
-{
-    float:left;
+{   
     margin:10px;
-    margin-top:90px;
+    margin-left:250px;
+    margin-top:150px;
 }
 
 #sidebar
@@ -66,6 +66,7 @@
     float:right;
     margin:20px;
 }
+
 html {
     background-color: #e2e2e2;
     margin: 0;
@@ -108,14 +109,6 @@ mark {
     background-color: #a6dbed;
     padding-left: 5px;
     padding-right: 5px;
-}
-
-.float-left {
-    float: left;
-}
-
-.float-right {
-    float: right;
 }
 
 .clear-fix:after {
@@ -400,7 +393,7 @@ aside {
 #loginForm {
     border-right: solid 2px #c8c8c8;
     float: left;
-    width: 30%;
+    width: 50%;
 }
 
     #loginForm .validation-error {
@@ -433,7 +426,7 @@ aside {
 #socialLoginForm {
     margin-left: 40px;
     float: left;
-    width: 20%;
+    width: 40%;
 }
 
     #socialLoginForm h2 {
@@ -591,69 +584,6 @@ input[type="checkbox"].input-validation-error {
 .validation-summary-valid {
     display: none;
 }
-
-
-/* tables
-----------------------------------------------------------*/
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
-    margin-top: 0.75em;
-    border: 0 none;
-}
-
-th {
-    font-size: 1.2em;
-    text-align: left;
-    border: none 0px;
-    padding-left: 0;
-}
-
-    th a {
-        display: block;
-        position: relative;
-    }
-
-    th a:link, th a:visited, th a:active, th a:hover {
-        color: #333;
-        font-weight: 600;
-        text-decoration: none;
-        padding: 0;
-    }
-
-    th a:hover {
-        color: #000;
-    }
-
-    th.asc a, th.desc a {
-        margin-right: .75em;
-    }
-
-    th.asc a:after, th.desc a:after {
-        display: block;
-        position: absolute;
-        right: 0em;
-        top: 0;
-        font-size: 0.75em;
-    }
-
-    th.asc a:after {
-        content: '▲';
-    }
-
-    th.desc a:after {
-        content: '▼';
-    }
-
-td {
-    padding: 0.25em 2em 0.25em 0em;
-    border: 0 none;
-}
-
-tr.pager td {
-    padding: 0 0.25em 0 0;
-}
-
 
 /********************
 *   Mobile Styles   *
@@ -821,4 +751,223 @@ tr.pager td {
         footer p {
             margin: 0;
         }
+}
+
+/* Tables */
+				/* Tables should never be used for visual */
+				/* formatting: that is the role of CSS!   */
+
+table.grid {
+   color:           inherit;
+   background:      inherit;	/* Don't make tables transparent */
+   border-collapse: collapse;
+   border-spacing:  0;
+   empty-cells:     show;
+   margin:          0.5em 2.5em;
+   padding:         0;
+   border:          1px solid #999999;
+}
+
+table.grid caption {
+   text-align:      center;
+   caption-side:    top;
+   margin:          0 2.5em 0.75em;
+   padding:         0;
+   border:          none;
+}
+
+table.grid td,
+table.grid th {
+   text-align:      center;
+   vertical-align:  middle;
+   margin:          0;
+   padding:         0.25em 0.5em;
+   border:          1px solid #999999;
+}
+
+table.grid th,
+table.grid td.highlight,
+table.grid th.highlight {
+   font-weight:     bold;
+   color:           inherit;
+   background:      #F0F0F0;
+}
+
+table.grid td.lighter,
+table.grid th.lighter {
+   color:           inherit;
+   background:      #F8F8F8;
+}
+
+table.grid td.left,
+table.grid th.left {
+   text-align:      left;
+}
+
+table.grid td.center,
+table.grid th.center {
+   text-align:      center;
+}
+
+table.grid td.right,
+table.grid th.right {
+   text-align:      right;
+}
+
+/* Sorting UI */
+a.sortAsc {
+    padding-right: 16px;
+    background-image: url(arrow_up.png);
+    background-position: right;
+    background-repeat: no-repeat;
+}
+
+a.sortDesc {
+    padding-right: 16px;
+    background-image: url(arrow_down.png);
+    background-position: right;
+    background-repeat: no-repeat;
+}
+
+/* Forms */
+
+form {
+   margin:          1em 0;
+   padding:         0;
+   border:          none;
+}
+
+input,
+button,
+select,
+fieldset,
+legend {
+   font-family:     Verdana, "DejaVu Sans", "Bitstream Vera Sans", "Lucida Sans", Arial, Helvetica, sans-serif;
+   font-size:       95%;
+   color:           black;
+   vertical-align:  middle;
+}
+
+textarea {
+   font-family:     "Courier New", Courier, monospace;
+   font-size:       100%;
+   color:           black;
+   background:      inherit;
+   vertical-align:  middle;
+}
+
+fieldset {
+   font-size:       100%;
+   margin:          1em 0;
+   border:          1px solid #999999;
+}
+
+legend {
+   font-size:       100%;
+   margin:          0 0.5em;
+   padding:         0 0.25em;
+   border:          none;
+}
+
+table.formtable {
+   color:           inherit;
+   background:      inherit;
+   border-collapse: collapse;
+   border-spacing:  0;
+   empty-cells:     show;
+   margin:          0;
+   padding:         0;
+   border:          none;
+}
+
+table.formtable td,
+table.formtable th {
+   text-align:      justify;
+   vertical-align:  middle;
+   margin:          0;
+   padding:         0.25em 0.5em;
+   border:          none;
+}
+
+table.formtable th {
+   text-align:      center;
+   font-weight:     bold;
+}
+
+table.formtable td.label,
+table.formtable th.label {
+   text-align:      right;
+   vertical-align:  top;
+}
+
+table.formtable td.vertspace,
+table.formtable th.vertspace {
+   empty-cells:     show;
+   margin:          0;
+   padding:         0.5em 0;
+   height:          1em;	/* Required for IE/Win */
+}
+
+table.formtable fieldset {
+   margin:          0;
+}
+
+table.formtable fieldset td,
+table.formtable fieldset th {
+   margin:          0.25em 0.5em;
+}
+
+.reqfield {
+   color:           red;
+   background:      transparent;
+   font-weight:     bolder;
+}
+
+.info {
+   color:           gray;
+   background:      transparent;
+   font-size:       90%;
+}
+
+/* Paging UI */
+td.pager {
+    background-color: #eee;
+}
+
+td.pager div {
+    font-size: smaller;
+    font-weight: bold;
+    padding: 5px;
+}
+
+a.pagerButton, a.pagerButton:visited
+{
+    border: solid 1px #eee;
+    padding: 4px;
+    text-decoration: none;
+    color: #006;
+    margin: 0px 2px 0px 2px;
+}
+
+a.pagerButton:hover
+{
+    border: solid 1px black;
+    color: Black;
+}
+
+a.pagerButtonCurrentPage
+{
+    border: solid 1px #00a;
+    padding: 4px;
+    text-decoration: none;
+    color: White;
+    background-color: #006;
+    margin: 0px 2px 0px 2px;
+}
+
+.pagerButtonDisabled
+{
+    border: none;
+    color: #999;
+    padding: 4px;
 }

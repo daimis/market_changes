@@ -39,6 +39,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DotNet.Highcharts">
+      <HintPath>..\packages\DotNet.Highcharts.2.0\lib\DotNet.Highcharts.dll</HintPath>
+    </Reference>
     <Reference Include="FluentNHibernate, Version=1.4.0.0, Culture=neutral, PublicKeyToken=8aa435e3cb308880, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\FluentNHibernate.1.4.0.0\lib\net35\FluentNHibernate.dll</HintPath>
@@ -51,6 +54,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -190,18 +194,27 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\GetCompanyController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\CompaniesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Filters\AutocompleteHelpers.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
+    <Compile Include="Filters\RouteValueDictionaryExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
-    <Compile Include="Models\CompanyListModel.cs" />
+    <Compile Include="Models\CompanyGridModels.cs" />
+    <Compile Include="Models\Home\CompanyListModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="YahooAnalizer.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\arrow_down.png" />
+    <Content Include="Content\arrow_up.png" />
+    <Content Include="Content\cancel.png" />
+    <Content Include="Content\CustomStyle.css" />
+    <Content Include="Content\Sinorcaish.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -259,10 +272,67 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Config\hibernate-configuration.config" />
-    <None Include="Scripts\jquery-1.8.2.intellisense.js" />
-    <Content Include="Scripts\jquery-1.8.2.js" />
-    <Content Include="Scripts\jquery-1.8.2.min.js" />
+    <Content Include="Scripts\almond.js" />
+    <Content Include="Scripts\Highcharts-3.0.1\js\adapters\mootools-adapter.js" />
+    <Content Include="Scripts\Highcharts-3.0.1\js\adapters\mootools-adapter.src.js" />
+    <Content Include="Scripts\Highcharts-3.0.1\js\adapters\prototype-adapter.js" />
+    <Content Include="Scripts\Highcharts-3.0.1\js\adapters\prototype-adapter.src.js" />
+    <Content Include="Scripts\Highcharts-3.0.1\js\highcharts-more.js" />
+    <Content Include="Scripts\Highcharts-3.0.1\js\highcharts.js" />
+    <Content Include="Scripts\Highcharts-3.0.1\js\highcharts.src.js" />
+    <Content Include="Scripts\Highcharts-3.0.1\js\modules\canvas-tools.js" />
+    <Content Include="Scripts\Highcharts-3.0.1\js\modules\canvas-tools.src.js" />
+    <Content Include="Scripts\Highcharts-3.0.1\js\modules\data.js" />
+    <Content Include="Scripts\Highcharts-3.0.1\js\modules\data.src.js" />
+    <Content Include="Scripts\Highcharts-3.0.1\js\modules\exporting.js" />
+    <Content Include="Scripts\Highcharts-3.0.1\js\modules\exporting.src.js" />
+    <Content Include="Scripts\Highcharts-3.0.1\js\modules\funnel.js" />
+    <Content Include="Scripts\Highcharts-3.0.1\js\modules\funnel.src.js" />
+    <Content Include="Scripts\Highcharts-3.0.1\js\themes\dark-blue.js" />
+    <Content Include="Scripts\Highcharts-3.0.1\js\themes\dark-green.js" />
+    <Content Include="Scripts\Highcharts-3.0.1\js\themes\gray.js" />
+    <Content Include="Scripts\Highcharts-3.0.1\js\themes\grid.js" />
+    <Content Include="Scripts\Highcharts-3.0.1\js\themes\skies.js" />
+    <None Include="Scripts\jquery-1.9.1.intellisense.js" />
+    <Content Include="Scripts\highstock.src.js" />
+    <Content Include="Scripts\Highstock\js\adapters\standalone-framework.js" />
+    <Content Include="Scripts\Highstock\js\adapters\standalone-framework.src.js" />
+    <Content Include="Scripts\Highstock\js\highcharts-3d.js" />
+    <Content Include="Scripts\Highstock\js\highcharts-3d.src.js" />
+    <Content Include="Scripts\Highstock\js\highcharts-more.js" />
+    <Content Include="Scripts\Highstock\js\highcharts-more.src.js" />
+    <Content Include="Scripts\Highstock\js\highstock.js" />
+    <Content Include="Scripts\Highstock\js\highstock.src.js" />
+    <Content Include="Scripts\Highstock\js\modules\canvas-tools.js" />
+    <Content Include="Scripts\Highstock\js\modules\canvas-tools.src.js" />
+    <Content Include="Scripts\Highstock\js\modules\data.js" />
+    <Content Include="Scripts\Highstock\js\modules\data.src.js" />
+    <Content Include="Scripts\Highstock\js\modules\drilldown.js" />
+    <Content Include="Scripts\Highstock\js\modules\drilldown.src.js" />
+    <Content Include="Scripts\Highstock\js\modules\exporting.js" />
+    <Content Include="Scripts\Highstock\js\modules\exporting.src.js" />
+    <Content Include="Scripts\Highstock\js\modules\funnel.js" />
+    <Content Include="Scripts\Highstock\js\modules\funnel.src.js" />
+    <Content Include="Scripts\Highstock\js\modules\heatmap.js" />
+    <Content Include="Scripts\Highstock\js\modules\heatmap.src.js" />
+    <Content Include="Scripts\Highstock\js\modules\no-data-to-display.js" />
+    <Content Include="Scripts\Highstock\js\modules\no-data-to-display.src.js" />
+    <Content Include="Scripts\Highstock\js\modules\solid-gauge.js" />
+    <Content Include="Scripts\Highstock\js\modules\solid-gauge.src.js" />
+    <Content Include="Scripts\Highstock\js\themes\dark-blue.js" />
+    <Content Include="Scripts\Highstock\js\themes\dark-green.js" />
+    <Content Include="Scripts\Highstock\js\themes\dark-unica.js" />
+    <Content Include="Scripts\Highstock\js\themes\gray.js" />
+    <Content Include="Scripts\Highstock\js\themes\grid-light.js" />
+    <Content Include="Scripts\Highstock\js\themes\grid.js" />
+    <Content Include="Scripts\Highstock\js\themes\sand-signika.js" />
+    <Content Include="Scripts\Highstock\js\themes\skies.js" />
+    <Content Include="Scripts\jquery-1.9.1.js" />
+    <Content Include="Scripts\jquery-1.9.1.min.js" />
+    <Content Include="Scripts\jquery-1.9.1.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-migrate-1.1.1.js" />
+    <Content Include="Scripts\jquery-migrate-1.1.1.min.js" />
     <Content Include="Scripts\jquery-ui-1.8.24.js" />
     <Content Include="Scripts\jquery-ui-1.8.24.min.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
@@ -271,9 +341,29 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\knockout-2.2.0.debug.js" />
-    <Content Include="Scripts\knockout-2.2.0.js" />
+    <Content Include="Scripts\knockout-3.0.0.debug.js" />
+    <Content Include="Scripts\knockout-3.0.0.js" />
+    <Content Include="Scripts\knockout.mapping-latest.debug.js" />
+    <Content Include="Scripts\knockout.mapping-latest.js" />
+    <Content Include="Scripts\listCollapse.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\autocomplete.js" />
+    <Content Include="Scripts\r.js" />
+    <Content Include="Scripts\require.js" />
+    <Content Include="Scripts\scalejs-0.3.3.js" />
+    <Content Include="Scripts\scalejs-0.3.3.min.js" />
+    <Content Include="Scripts\scalejs.functional-0.2.10.js" />
+    <Content Include="Scripts\scalejs.functional-0.2.10.min.js" />
+    <Content Include="Scripts\scalejs.highstock-1.2.5.1.js" />
+    <Content Include="Scripts\scalejs.highstock-1.2.5.1.min.js" />
+    <Content Include="Scripts\scalejs.mvvm-0.3.4.6.js" />
+    <Content Include="Scripts\scalejs.mvvm-0.3.4.6.min.js" />
+    <Content Include="Scripts\scalejs.mvvm.bindings.js" />
+    <Content Include="Scripts\scalejs.mvvm.views.js" />
+    <Content Include="Scripts\scalejs.sandbox.js" />
+    <None Include="Scripts\_scalejs.intellisense.js" />
+    <Content Include="Scripts\text.js" />
+    <Content Include="Scripts\_highstock.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -319,9 +409,13 @@
     <Content Include="Views\Home\Categories.cshtml" />
     <Content Include="Views\Home\CompanyInfo.cshtml" />
     <Content Include="Views\Home\SideBarCompany.cshtml" />
+    <Content Include="Views\Shared\_SmartLink.cshtml" />
+    <Content Include="Views\Shared\_Pager.cshtml" />
+    <Content Include="Views\Shared\_PagerLink.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Companies\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -347,6 +441,9 @@
       <Project>{19f48562-b3b6-4eda-a863-b1f1f3d9f602}</Project>
       <Name>MarketChanges.GetData</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

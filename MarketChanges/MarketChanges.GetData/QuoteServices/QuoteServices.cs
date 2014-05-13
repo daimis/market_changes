@@ -13,6 +13,9 @@ namespace MarketChanges.GetData.QueteServices
         public event PropertyChangedEventHandler PropertyChanged;
 
         private string symbol;
+        private decimal? askRealtime;
+        private decimal? bidRealtime;
+        private decimal? changeRealtime;
         private decimal? averageDailyVolume;
         private decimal? bid;
         private decimal? ask;
@@ -85,6 +88,35 @@ namespace MarketChanges.GetData.QueteServices
             }
         }
 
+        public decimal? ChangeRealtime
+        {
+            get { return changeRealtime; }
+            set
+            {
+                changeRealtime = value;
+                if (PropertyChanged != null) PropertyChanged(this, new PropertyChangedEventArgs("ChangeRealtime"));
+            }
+        }
+
+        public decimal? BidRealtime
+        {
+            get { return bidRealtime; }
+            set
+            {
+                bidRealtime = value;
+                if (PropertyChanged != null) PropertyChanged(this, new PropertyChangedEventArgs("BidRealtime"));
+            }
+        }
+
+        public decimal? AskRealtime
+        {
+            get { return askRealtime; }
+            set
+            {
+                askRealtime = value;
+                if (PropertyChanged != null) PropertyChanged(this, new PropertyChangedEventArgs("AskRealtime"));
+            }
+        }
 
         public decimal? Volume
         {

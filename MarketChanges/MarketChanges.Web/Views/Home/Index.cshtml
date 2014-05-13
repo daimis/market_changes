@@ -1,3 +1,33 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿@model MarketChanges.Web.Models.CompanyGridModels
+
+@{
+    ViewBag.Title = "Companies realtime";
 }
+
+<h2>Companies Realtime</h2>
+
+<table class="grid" style="width: 90%">
+    <tr>
+        <<th style="width: 35%">@Html.Partial("_SmartLink", Model, new ViewDataDictionary { { "ColumnName", "Company.CompanyName" }, { "DisplayName", "Company name" } })</th>
+        <th style="width: 20%">@Html.Partial("_SmartLink", Model, new ViewDataDictionary { { "ColumnName", "AskRealtime" }, { "DisplayName", "Ask" } })</th>
+        <th style="width: 20%">@Html.Partial("_SmartLink", Model, new ViewDataDictionary { { "ColumnName", "BidRealtime" }, { "DisplayName", "Bid" } })</th>
+        <th style="width: 25%">@Html.Partial("_SmartLink", Model, new ViewDataDictionary { { "ColumnName", "PriceSales" }, { "DisplayName", "Price sales" } })</th>
+    </tr>
+
+    @foreach (var item in Model.Quotes)
+    {
+        <tr>
+            <td class="left">@item.Company.CompanyName</td>
+            <td class="right">@item.AskRealtime.Value.ToString("F")</td>
+            <td class="right">@item.BidRealtime.Value.ToString("F")</td>
+            <td class="right">@item.PriceSales.Value.ToString("F")</td>
+        </tr>
+    }
+
+    <tr>
+        <td class="pager" colspan="5">
+            @Html.Partial("_Pager", Model)
+        </td>
+    </tr>
+
+</table>

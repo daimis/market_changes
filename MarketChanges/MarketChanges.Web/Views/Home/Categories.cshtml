@@ -1,10 +1,41 @@
-﻿@{
+﻿@using MarketChanges.DataEntities.Entities
+
+@{
     ViewBag.Title = "Categories";
+    var sector = (IList<Sector>)ViewData["Sectors"];
+    var industries = (IList<Industry>)ViewData["Industries"];
+    var companies = (IList<Company>)ViewData["Companies"];
 }
 
 <h2>Categories</h2>
 
-@foreach (var s in ViewBag.Sectors)
-{
-    <ul><li>@s.SectorName</li></ul>
-}
+<ul class="main1">
+    @foreach (var s in sector)
+    {
+        <li>
+            @s.SectorName
+            <ul>
+                @foreach (var i in industries)
+                {
+                    if (s.Id == i.Sector.Id)
+                    {
+                        <li hidden>
+                            @i.IndustryName
+                            <ul>
+                                @foreach (var c in companies)
+                                {
+                                    if(i.Id == c.Industry.Id)
+                                    {
+                                        <li hidden>
+                                            @c.CompanyName
+                                        </li>
+                                    }
+                                }
+                            </ul>
+                        </li>
+                    }
+                }
+            </ul>
+        </li>
+    }
+</ul>

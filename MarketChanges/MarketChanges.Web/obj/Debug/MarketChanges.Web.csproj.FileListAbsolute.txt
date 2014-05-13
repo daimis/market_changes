@@ -1,4 +1,4 @@
-C:\Repository\MarketChanges\MarketChanges.Web\obj\Debug\MarketChanges.Web.csprojResolveAssemblyReference.cache
+C:\Repository\MarketChanges\MarketChanges.Web\bin\DotNet.Highcharts.dll
 C:\Repository\MarketChanges\MarketChanges.Web\bin\MarketChanges.Web.dll.config
 C:\Repository\MarketChanges\MarketChanges.Web\bin\MarketChanges.Web.dll
 C:\Repository\MarketChanges\MarketChanges.Web\bin\MarketChanges.Web.pdb
@@ -71,6 +71,8 @@ C:\Repository\MarketChanges\MarketChanges.Web\bin\System.Web.Http.OData.xml
 C:\Repository\MarketChanges\MarketChanges.Web\bin\Microsoft.Data.Edm.xml
 C:\Repository\MarketChanges\MarketChanges.Web\bin\Microsoft.Data.OData.xml
 C:\Repository\MarketChanges\MarketChanges.Web\bin\System.Spatial.xml
+C:\Repository\MarketChanges\MarketChanges.Web\bin\Iesi.Collections.pdb
+C:\Repository\MarketChanges\MarketChanges.Web\bin\Iesi.Collections.xml
 C:\Repository\MarketChanges\MarketChanges.Web\bin\de\Microsoft.Data.Edm.resources.dll
 C:\Repository\MarketChanges\MarketChanges.Web\bin\es\Microsoft.Data.Edm.resources.dll
 C:\Repository\MarketChanges\MarketChanges.Web\bin\fr\Microsoft.Data.Edm.resources.dll
@@ -98,7 +100,6 @@ C:\Repository\MarketChanges\MarketChanges.Web\bin\ko\System.Spatial.resources.dl
 C:\Repository\MarketChanges\MarketChanges.Web\bin\ru\System.Spatial.resources.dll
 C:\Repository\MarketChanges\MarketChanges.Web\bin\zh-Hans\System.Spatial.resources.dll
 C:\Repository\MarketChanges\MarketChanges.Web\bin\zh-Hant\System.Spatial.resources.dll
+C:\Repository\MarketChanges\MarketChanges.Web\obj\Debug\MarketChanges.Web.csprojResolveAssemblyReference.cache
 C:\Repository\MarketChanges\MarketChanges.Web\obj\Debug\MarketChanges.Web.dll
 C:\Repository\MarketChanges\MarketChanges.Web\obj\Debug\MarketChanges.Web.pdb
-C:\Repository\MarketChanges\MarketChanges.Web\bin\Iesi.Collections.pdb
-C:\Repository\MarketChanges\MarketChanges.Web\bin\Iesi.Collections.xml

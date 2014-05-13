@@ -7,6 +7,6 @@ C:\Repository\MarketChanges\MarketChanges.GetDataServices\bin\Debug\FluentNHiber
 C:\Repository\MarketChanges\MarketChanges.GetDataServices\bin\Debug\Iesi.Collections.xml
 C:\Repository\MarketChanges\MarketChanges.GetDataServices\bin\Debug\NHibernate.pdb
 C:\Repository\MarketChanges\MarketChanges.GetDataServices\bin\Debug\NHibernate.xml
+C:\Repository\MarketChanges\MarketChanges.GetDataServices\obj\Debug\MarketChanges.GetDataServices.csprojResolveAssemblyReference.cache
 C:\Repository\MarketChanges\MarketChanges.GetDataServices\obj\Debug\MarketChanges.GetDataServices.dll
 C:\Repository\MarketChanges\MarketChanges.GetDataServices\obj\Debug\MarketChanges.GetDataServices.pdb
-C:\Repository\MarketChanges\MarketChanges.GetDataServices\obj\Debug\MarketChanges.GetDataServices.csprojResolveAssemblyReference.cache

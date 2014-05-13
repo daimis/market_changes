@@ -12,6 +12,9 @@ namespace MarketChanges.DataEntities.Entities
 
         public virtual decimal? Ask { get; set; }
         public virtual decimal? Bid { get; set; }
+        public virtual decimal? AskRealtime { get; set; }
+        public virtual decimal? BidRealtime { get; set; }
+        public virtual decimal? ChangeRealtime { get; set; }
         public virtual decimal? AverageDailyVolume { get; set; }
         public virtual decimal? BookValue { get; set; }
         public virtual decimal? Change { get; set; }
