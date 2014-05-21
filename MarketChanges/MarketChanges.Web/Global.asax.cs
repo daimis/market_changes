@@ -25,7 +25,7 @@ namespace MarketChanges.Web
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AuthConfig.RegisterAuth();
 
-            YahooAnalizer.Start();
+            //YahooAnalizer.Start();
         }
     }
 }

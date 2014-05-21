@@ -1,5 +1,21 @@
-﻿@{
-    ViewBag.Title = "Company list";
-}
+﻿@using MarketChanges.DataEntities.Entities
 
 <h2>Favorites</h2>
+
+@{
+    var cmp = (IList<Company>)ViewData["Trending"];
+    int i = 0;
+}
+
+@section sidebar {
+<h6>Top trending companies</h6>
+@foreach (var c in cmp)
+{
+    <p>@c.CompanyName</p>
+    i++;
+    if (i == 20)
+    {
+        break;
+    }
+}  
+}

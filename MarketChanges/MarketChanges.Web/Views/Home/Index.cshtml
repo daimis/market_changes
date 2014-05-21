@@ -1,4 +1,5 @@
 ﻿@model MarketChanges.Web.Models.CompanyGridModels
+@using MarketChanges.DataEntities.Entities
 
 @{
     ViewBag.Title = "Companies realtime";
@@ -31,3 +32,17 @@
     </tr>
 
 </table>
+
+@{
+    var cmp = (IList<Company>)ViewData["Trending"];
+    cmp.Take(20);
+    <!--      var cp1 = cmp.OrderBy(c => c.Quotes.Last().Change).ToList().Take(20);         -->
+}
+
+@section sidebar {
+    <h6>Top trending companies</h6>
+    @foreach (var c in cmp)
+    {
+        <p>@c.CompanyName</p>
+    }
+}

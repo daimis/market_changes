@@ -3,17 +3,16 @@
 <head>
     <meta charset="utf-8" />
     <title>@ViewBag.Title - My ASP.NET MVC Application</title>
-    <link href="@Url.Content("~/Content/Site.scc")" rel="stylesheet" type="text/css" />
-    <link href="@Url.Content("~/Content/CustomStyle.scc")" rel="stylesheet" type="text/css" />
+   
     <link href="@Url.Content("~/Content/themes/base/jquery.ui.all.css")" rel="stylesheet" type="text/css" />
-    <link href="@Url.Content("~/Content/Sinorcaish.scc")" rel="stylesheet" type="text/css" />
     <script src="@Url.Content("~/Scripts/jquery-1.9.1.min.js")" type="text/javascript"></script>
     <script src="@Url.Content("~/Scripts/jquery-ui-1.8.24.min.js")" type="text/javascript"></script>
     <script src="@Url.Content("~/Scripts/autocomplete.js")" type="text/javascript"></script>
     <script src="@Url.Content("~/Scripts/Highcharts-3.0.1/js/highcharts.js")" type="text/javascript"></script>
     <script src="@Url.Content("~/Scripts/Highcharts-3.0.1/js/themes/gray.js")" type="text/javascript"></script>
-    <script src="@Url.Content("~/Scripts/Highstock/js/highcstock.js")" type="text/javascript"></script>
-    <script src="@Url.Content("~/Scripts/Highstock/js/themes/gray.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/highcstock.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/try.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/themes/gray.js")" type="text/javascript"></script>
     <script src="@Url.Content("~/Scripts/listCollapse.js")" type="text/javascript"></script>
 
     @Styles.Render("~/Content/css")
@@ -47,12 +46,7 @@
     </header>
 
     <div id="sidebar">
-        @RenderSection("sidebar", required: false)
-                 
-        <ul>
-            <li>Company list</li>
-        </ul>
-
+        @RenderSection("sidebar", required: false)       
     </div>
 
     <div id="content">

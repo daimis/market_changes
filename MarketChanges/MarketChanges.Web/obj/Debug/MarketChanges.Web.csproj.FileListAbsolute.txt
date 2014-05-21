@@ -1,8 +1,8 @@
-C:\Repository\MarketChanges\MarketChanges.Web\bin\DotNet.Highcharts.dll
 C:\Repository\MarketChanges\MarketChanges.Web\bin\MarketChanges.Web.dll.config
 C:\Repository\MarketChanges\MarketChanges.Web\bin\MarketChanges.Web.dll
 C:\Repository\MarketChanges\MarketChanges.Web\bin\MarketChanges.Web.pdb
 C:\Repository\MarketChanges\MarketChanges.Web\bin\Antlr3.Runtime.dll
+C:\Repository\MarketChanges\MarketChanges.Web\bin\DotNet.Highcharts.dll
 C:\Repository\MarketChanges\MarketChanges.Web\bin\DotNetOpenAuth.AspNet.dll
 C:\Repository\MarketChanges\MarketChanges.Web\bin\DotNetOpenAuth.Core.dll
 C:\Repository\MarketChanges\MarketChanges.Web\bin\DotNetOpenAuth.OAuth.Consumer.dll

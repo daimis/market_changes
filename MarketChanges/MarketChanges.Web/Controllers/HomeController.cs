@@ -83,6 +83,17 @@ namespace MarketChanges.Web.Controllers
                 .Skip((model.CurrentPageIndex - 1) * model.PageSize)
                 .Take(model.PageSize);
 
+            IRepository repository = new Repository(SessionFactoryProvider);
+
+            Company companyAlias = null;
+
+            IList<Company> cmp = repository
+                .AsQueryOver(() => companyAlias)
+                .Where(Restrictions.On(() => companyAlias.Id).IsNotNull)
+                .List();
+
+            ViewData["Trending"] = cmp;
+
             return View(model);
         }
 
@@ -141,10 +152,21 @@ namespace MarketChanges.Web.Controllers
             return View();
         }
 
+        [ActionName("SideBarCompany")]
         public ActionResult SideBarCompany()
         {
-            ViewBag.Message = "Side Bar";
+            IRepository repository = new Repository(SessionFactoryProvider);
 
+            Company companyAlias = null;
+
+            IList<Company> cmp = repository
+                .AsQueryOver(() => companyAlias)
+                .Where(Restrictions.On(() => companyAlias.Id).IsNotNull)
+                .List();
+
+            ViewData["Trending"] = cmp;
+
+            
             return View();
         }
 
