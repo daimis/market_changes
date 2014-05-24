@@ -11,9 +11,6 @@ using MarketChanges.DataEntities.Entities;
 using MarketChanges.Data.DataContext;
 using System.Collections.ObjectModel;
 using System.Transactions;
-using MarketChanges.GetDataServices;
-using MarketChanges.GetData.SectorServices;
-using MarketChanges.GetData.CompanyServices;
 using NHibernate.Criterion;
 using MarketChanges.GetData;
 using System.Xml.Linq;
@@ -28,19 +25,16 @@ namespace Test
 
         private static IList<Company> cmp = new List<Company>();
 
-        public static ObservableCollection<IQuoteServices> Quotes { get; set; }
+        public static ObservableCollection<string> Quotes { get; set; }
 
         static void Main(string[] args)
         {
             IRepository repository = new Repository(SessionFactoryProvider);
 
-            Quotes = new ObservableCollection<IQuoteServices>();
+            Quotes = new ObservableCollection<string>();
 
             //YahooMarketSectors.Fetch();
             //YahooMarketCompanies.Fetch();
-
-            //Some example tickers
-            //get the data
 
             Company companyAlias = null;
 
@@ -52,13 +46,13 @@ namespace Test
             int limit = 0;
             foreach (Company c in cmp)
             {
-                Quotes.Add(new MarketChanges.GetData.QueteServices.Quote(c.CompanySymbol));
+                Quotes.Add(c.CompanySymbol);
                 limit++;
                 if (limit == 150 || c == cmp.Last<Company>())
                 {
                     YahooMarketQuotes.Fetch(Quotes);
                     limit = 0;
-                    Quotes = new ObservableCollection<IQuoteServices>();
+                    Quotes = new ObservableCollection<string>();
                 }
             }
 
@@ -88,12 +82,6 @@ namespace Test
                 return true;
             }
             return false;
-        }
-
-        private static void CompaniesSymbolList(IList<Company> companies)
-        {
-            
-
         }
 
     }

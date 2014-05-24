@@ -15,7 +15,6 @@ C:\Repository\MarketChanges\MarketChanges.Web\bin\MarketChanges.Data.dll
 C:\Repository\MarketChanges\MarketChanges.Web\bin\MarketChanges.DataContracts.dll
 C:\Repository\MarketChanges\MarketChanges.Web\bin\MarketChanges.DataEntities.dll
 C:\Repository\MarketChanges\MarketChanges.Web\bin\MarketChanges.GetData.dll
-C:\Repository\MarketChanges\MarketChanges.Web\bin\MarketChanges.GetDataServices.dll
 C:\Repository\MarketChanges\MarketChanges.Web\bin\Microsoft.Data.Edm.dll
 C:\Repository\MarketChanges\MarketChanges.Web\bin\Microsoft.Data.OData.dll
 C:\Repository\MarketChanges\MarketChanges.Web\bin\Microsoft.Web.Infrastructure.dll
@@ -42,7 +41,6 @@ C:\Repository\MarketChanges\MarketChanges.Web\bin\Iesi.Collections.dll
 C:\Repository\MarketChanges\MarketChanges.Web\bin\MarketChanges.DataContracts.pdb
 C:\Repository\MarketChanges\MarketChanges.Web\bin\MarketChanges.DataEntities.pdb
 C:\Repository\MarketChanges\MarketChanges.Web\bin\MarketChanges.Data.pdb
-C:\Repository\MarketChanges\MarketChanges.Web\bin\MarketChanges.GetDataServices.pdb
 C:\Repository\MarketChanges\MarketChanges.Web\bin\MarketChanges.GetData.pdb
 C:\Repository\MarketChanges\MarketChanges.Web\bin\FluentNHibernate.xml
 C:\Repository\MarketChanges\MarketChanges.Web\bin\NHibernate.pdb

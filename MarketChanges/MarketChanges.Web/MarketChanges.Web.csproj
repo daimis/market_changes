@@ -197,7 +197,6 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
-    <Compile Include="Controllers\CompaniesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Filters\AutocompleteHelpers.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
@@ -274,6 +273,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Config\hibernate-configuration.config" />
+    <Content Include="query.sql" />
     <Content Include="Scripts\adapters\standalone-framework.js" />
     <Content Include="Scripts\adapters\standalone-framework.src.js" />
     <Content Include="Scripts\almond.js" />
@@ -297,6 +297,7 @@
     <Content Include="Scripts\Highcharts-3.0.1\js\themes\gray.js" />
     <Content Include="Scripts\Highcharts-3.0.1\js\themes\grid.js" />
     <Content Include="Scripts\Highcharts-3.0.1\js\themes\skies.js" />
+    <Content Include="ClassDiagramMVC.cd" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\highcharts-3d.js" />
     <Content Include="Scripts\highcharts-3d.src.js" />
@@ -465,10 +466,6 @@
     <ProjectReference Include="..\MarketChanges.Data\MarketChanges.Data.csproj">
       <Project>{0dd4f9fb-8361-4847-aa04-3fe3afba7c75}</Project>
       <Name>MarketChanges.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MarketChanges.GetDataServices\MarketChanges.GetDataServices.csproj">
-      <Project>{27af4eea-4507-4790-b8cb-524a97a04603}</Project>
-      <Name>MarketChanges.GetDataServices</Name>
     </ProjectReference>
     <ProjectReference Include="..\MarketChanges.GetData\MarketChanges.GetData.csproj">
       <Project>{19f48562-b3b6-4eda-a863-b1f1f3d9f602}</Project>

@@ -80,10 +80,6 @@
       <Project>{0dd4f9fb-8361-4847-aa04-3fe3afba7c75}</Project>
       <Name>MarketChanges.Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MarketChanges.GetDataServices\MarketChanges.GetDataServices.csproj">
-      <Project>{27af4eea-4507-4790-b8cb-524a97a04603}</Project>
-      <Name>MarketChanges.GetDataServices</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MarketChanges.GetData\MarketChanges.GetData.csproj">
       <Project>{19f48562-b3b6-4eda-a863-b1f1f3d9f602}</Project>
       <Name>MarketChanges.GetData</Name>

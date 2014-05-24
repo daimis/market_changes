@@ -2,7 +2,6 @@
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Xml.Linq;
-using MarketChanges.GetDataServices;
 using MarketChanges.DataContracts;
 using MarketChanges.Data;
 using MarketChanges.Data.DataContext;
@@ -19,20 +18,18 @@ namespace MarketChanges.GetData
     {
         private const string BASE_URL = "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo.finance.quotes%20where%20symbol%20in%20({0})&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys";
 
-        //private const string BASE_URL = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo.finance.quotes%20where%20symbol%20in%20%28select%20company.symbol%20from%20yahoo.finance.industry%20where%20id%20%3D%20({0})%29&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys";
-
         private static readonly ISessionFactoryProvider SessionFactoryProvider = new SessionFactoryProvider();
 
-        public static void Fetch(ObservableCollection<IQuoteServices> quotes)
+        public static void Fetch(ObservableCollection<string> quotes)
         {
-            string symbolList = String.Join("%2C", quotes.Select(w => "%22" + w.Symbol + "%22").ToArray());
+            string symbolList = String.Join("%2C", quotes.Select(w => "%22" + w + "%22").ToArray());
             string url = string.Format(BASE_URL, symbolList);
 
             XDocument doc = XDocument.Load(url);
             Parse(quotes, doc);
         }
 
-        private static void Parse(ObservableCollection<IQuoteServices> quotes, XDocument doc)
+        private static void Parse(ObservableCollection<string> quotes, XDocument doc)
         {
             XElement results = doc.Root.Element("results");
 
@@ -52,14 +49,14 @@ namespace MarketChanges.GetData
             foreach (var quote in quotes)
             {
                 XElement q = null;
-                if (results.Elements("quote").Any(w => w.Attribute("symbol").Value == quote.Symbol))
+                if (results.Elements("quote").Any(w => w.Attribute("symbol").Value.ToString() == quote))
                 {
-                    q = results.Elements("quote").First(w => w.Attribute("symbol").Value == quote.Symbol);
+                    q = results.Elements("quote").First(w => w.Attribute("symbol").Value == quote);
                 }
 
                 foreach (var i in list)
                 {
-                    if (i.CompanySymbol == quote.Symbol)
+                    if (i.CompanySymbol == quote)
                     {
                         comp = i;
                     }
@@ -124,8 +121,11 @@ namespace MarketChanges.GetData
                     }
                 } else
                 {
-                    //rep.Delete<Company>(comp);
-                    //rep.Commit();
+                    if (comp.Quotes == null)
+                    {
+                        rep.Delete<Company>(comp);
+                        rep.Commit();
+                    }
                 }
             }
         }
@@ -706,9 +706,9 @@ namespace MarketChanges.GetData
             }
         }
 
-        public static void Fetch(ObservableCollection<QueteServices.Quote> Quotes)
+        /*public static void Fetch(ObservableCollection<string> Quotes)
         {
             throw new NotImplementedException();
-        }
+        }*/
     }
 }

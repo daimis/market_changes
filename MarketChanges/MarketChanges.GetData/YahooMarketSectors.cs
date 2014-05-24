@@ -6,8 +6,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
-using MarketChanges.GetDataServices;
-using MarketChanges.GetData.SectorServices;
 using MarketChanges.DataContracts;
 using MarketChanges.Data;
 using MarketChanges.Data.DataContext;

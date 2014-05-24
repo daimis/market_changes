@@ -1,5 +1,0 @@
-C:\Repository\MarketChanges\MarketChanges.GetData\obj\Debug\MarketChanges.GetData.csprojResolveAssemblyReference.cache
-C:\Repository\MarketChanges\MarketChanges.GetData\bin\Debug\MarketChanges.GetData.dll
-C:\Repository\MarketChanges\MarketChanges.GetData\bin\Debug\MarketChanges.GetData.pdb
-C:\Repository\MarketChanges\MarketChanges.GetData\obj\Debug\MarketChanges.GetData.dll
-C:\Repository\MarketChanges\MarketChanges.GetData\obj\Debug\MarketChanges.GetData.pdb

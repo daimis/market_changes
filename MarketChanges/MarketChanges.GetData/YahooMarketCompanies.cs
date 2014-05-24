@@ -2,8 +2,6 @@
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Xml.Linq;
-using MarketChanges.GetDataServices;
-using MarketChanges.GetData.CompanyServices;
 using System.Collections.Generic;
 using MarketChanges.DataContracts;
 using MarketChanges.Data;
@@ -36,7 +34,8 @@ namespace MarketChanges.GetData
 
             foreach (var c in companies)
             {
-                IList<CompanyServices.CompanyServices> companiesNames = new List<CompanyServices.CompanyServices>();
+                IList<string> companiesNames = new List<string>();
+                IList<string> companiesSymbol = new List<string>();
 
                 XAttribute com = c.Attribute("name");
 
@@ -48,8 +47,8 @@ namespace MarketChanges.GetData
                     {
                         XAttribute company = w.Attribute("name");
                         XAttribute symbol = w.Attribute("symbol");
-                        companiesNames.Add(new CompanyServices.CompanyServices(com.Value, company.Value, symbol.Value));
-                        Console.WriteLine(company.Value);
+                        companiesNames.Add(symbol.Value);
+                        companiesSymbol.Add(symbol.Value);
                     }
                 }
 
@@ -74,18 +73,18 @@ namespace MarketChanges.GetData
                         }
                     }
 
-                    foreach (var cp in companiesNames)
+                    for (int i = 0; i < companiesNames.Count; i++ )
                     {
-                        if (!cmp.Contains(cp.CompanySymbol))
+                        if (!cmp.Contains(companiesNames[i]))
                         {
                             var company = new Company()
                             {
                                 Industry = indusID,
-                                CompanyName = cp.CompanyName,
-                                CompanySymbol = cp.CompanySymbol
+                                CompanyName = companiesNames[i],
+                                CompanySymbol = companiesSymbol[i]
                             };
                             repository.Save(company);
-                            cmp.Add(cp.CompanySymbol);
+                            cmp.Add(companiesNames[i]);
                         }
                     }
 

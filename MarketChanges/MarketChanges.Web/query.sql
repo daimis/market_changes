@@ -105,7 +105,7 @@ CREATE TABLE [dbo].[Quote](
 ) ON [PRIMARY]
 GO
 /****** Object:  Default [DF_DataTime]    Script Date: 04/28/2014 11:35:28 ******/
-ALTER TABLE [dbo].[Quote] ADD  CONSTRAINT [DF_DataTime_AddData]  DEFAULT (getdate()) FOR [DataDate]
+ALTER TABLE [dbo].[Quote] ADD  CONSTRAINT [DF_DataTime_AddData]  DEFAULT (getdate()) FOR [LastUpdate]
 GO
 /****** Object:  Constrain [CS_Sector]    Script Date: 04/28/2014 11:35:28 ******/
 ALTER TABLE [dbo].[Sector] 

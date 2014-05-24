@@ -11,9 +11,6 @@ using MarketChanges.DataEntities.Entities;
 using MarketChanges.Data.DataContext;
 using System.Collections.ObjectModel;
 using System.Transactions;
-using MarketChanges.GetDataServices;
-using MarketChanges.GetData.SectorServices;
-using MarketChanges.GetData.CompanyServices;
 using NHibernate.Criterion;
 using MarketChanges.GetData;
 using System.Xml.Linq;
@@ -28,14 +25,14 @@ namespace MarketChanges.Web
 
         private static IList<Company> cmp = new List<Company>();
 
-        public static ObservableCollection<IQuoteServices> Quotes { get; set; }
+        public static ObservableCollection<string> Quotes { get; set; }
 
         public static void Start()
         {
             StartProc();
-            //poll every 3600 seconds
-            timer.Interval = new TimeSpan(0, 0, 3600);
-            timer.Tick += (o, e) => StartProc();                  
+            //poll every 1 hour
+            timer.Interval = new TimeSpan(1, 0, 0);
+            timer.Tick += (o, e) => StartProc();    
             timer.Start();
         }
 
@@ -50,21 +47,43 @@ namespace MarketChanges.Web
 
             Company companyAlias = null;
 
+            Sector sectorAlias = null;
+
+            if (repository
+                .AsQueryOver(() => sectorAlias)
+                .RowCount() == 0)
+            {
+                YahooMarketSectors.Fetch();
+            }
+
+            if (repository
+                .AsQueryOver(() => companyAlias)
+                .RowCount() == 0)
+            {
+                YahooMarketCompanies.Fetch();
+            }
+
             var cmp = repository
                 .AsQueryOver(() => companyAlias)
                 .Where(Restrictions.On(() => companyAlias.CompanySymbol).IsNotNull)
                 .List();
 
             int limit = 0;
-            foreach (Company c in cmp)
+
+            if (cmp.Count > 0)
             {
-                Quotes.Add(new MarketChanges.GetData.QueteServices.Quote(c.CompanySymbol));
-                limit++;
-                if (limit == 150 || c == cmp.Last<Company>())
+                Quotes = new ObservableCollection<string>();
+                foreach (Company c in cmp)
                 {
-                    YahooMarketQuotes.Fetch(Quotes);
-                    limit = 0;
-                    Quotes = new ObservableCollection<IQuoteServices>();
+                    string symbol = c.CompanySymbol;
+                    Quotes.Add(symbol);
+                    limit++;
+                    if (limit == 200 || c == cmp.Last<Company>())
+                    {
+                        YahooMarketQuotes.Fetch(Quotes);
+                        limit = 0;
+                        Quotes = new ObservableCollection<string>();
+                    }
                 }
             }
         }
