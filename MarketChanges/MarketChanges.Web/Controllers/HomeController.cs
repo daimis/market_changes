@@ -199,7 +199,10 @@ namespace MarketChanges.Web.Controllers
                     .Where(q => q.Company.Id == cmp.Id)
                     .List();
 
-                ViewData["OneQuote"] = qte.Last();
+                if (qte != null)
+                {
+                    ViewData["OneQuote"] = qte.Last();
+                }
 
                 object[] objAsk = new object[30];
                 object[] objBid = new object[30];

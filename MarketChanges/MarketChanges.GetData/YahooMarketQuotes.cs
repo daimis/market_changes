@@ -121,7 +121,7 @@ namespace MarketChanges.GetData
                     }
                 } else
                 {
-                    if (comp.Quotes == null)
+                    if (comp.Quotes.Count == 0)
                     {
                         rep.Delete<Company>(comp);
                         rep.Commit();

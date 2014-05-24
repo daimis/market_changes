@@ -75,7 +75,7 @@ namespace MarketChanges.GetData
 
                     for (int i = 0; i < companiesNames.Count; i++ )
                     {
-                        if (!cmp.Contains(companiesNames[i]))
+                        if (!cmp.Contains(companiesSymbol[i]))
                         {
                             var company = new Company()
                             {
@@ -84,7 +84,7 @@ namespace MarketChanges.GetData
                                 CompanySymbol = companiesSymbol[i]
                             };
                             repository.Save(company);
-                            cmp.Add(companiesNames[i]);
+                            cmp.Add(companiesSymbol[i]);
                         }
                     }
 

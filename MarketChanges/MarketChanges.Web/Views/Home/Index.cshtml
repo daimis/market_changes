@@ -35,13 +35,13 @@
 
 @{
     var cmp = (IList<Company>)ViewData["Trending"];
-    cmp.Take(20);
+    var cp20 = cmp.Take(20);
     <!--      var cp1 = cmp.OrderBy(c => c.Quotes.Last().Change).ToList().Take(20);         -->
 }
 
 @section sidebar {
     <h6>Top trending companies</h6>
-    @foreach (var c in cmp)
+    @foreach (var c in cp20)
     {
         <p>@c.CompanyName</p>
     }

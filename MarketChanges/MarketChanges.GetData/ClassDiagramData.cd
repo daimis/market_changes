@@ -24,42 +24,6 @@
       <FileName>YahooMarketSectors.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="MarketChanges.Data.DataContext.Conventions.EnumConvention">
-    <Position X="9.25" Y="1" Width="1.5" />
-    <TypeIdentifier />
-    <Lollipop Position="0.2" />
-  </Class>
-  <Class Name="MarketChanges.Data.DataContext.SessionFactoryProvider">
-    <Position X="4" Y="2.75" Width="1.5" />
-    <TypeIdentifier />
-    <Lollipop Position="0.2" />
-  </Class>
-  <Class Name="MarketChanges.Data.GenericRepositoryBase&lt;TId&gt;">
-    <Position X="5.75" Y="0.5" Width="1.5" />
-    <TypeIdentifier />
-    <Lollipop Position="0.2" />
-  </Class>
-  <Class Name="MarketChanges.Data.Repository">
-    <Position X="7.5" Y="0.5" Width="1.5" />
-    <TypeIdentifier />
-    <Lollipop Position="0.2" />
-  </Class>
-  <Class Name="MarketChanges.DataContracts.Exceptions.ConcurrentDataException">
-    <Position X="2.25" Y="3.25" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="MarketChanges.DataContracts.Exceptions.DataException">
-    <Position X="0.5" Y="5.5" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="MarketChanges.DataContracts.Exceptions.EntityNotFoundException">
-    <Position X="2.25" Y="5.5" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="MarketChanges.DataContracts.Exceptions.KnownException">
-    <Position X="0.5" Y="3.75" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
   <Class Name="MarketChanges.DataEntities.Entities.Company">
     <Position X="5.75" Y="6.25" Width="1.5" />
     <TypeIdentifier />
@@ -87,6 +51,42 @@
   <Class Name="MarketChanges.DataEntities.Mappings.EntityMapBase&lt;TEntity&gt;">
     <Position X="9.5" Y="3" Width="1.5" />
     <TypeIdentifier />
+  </Class>
+  <Class Name="MarketChanges.DataContracts.Exceptions.ConcurrentDataException">
+    <Position X="2.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="MarketChanges.DataContracts.Exceptions.DataException">
+    <Position X="0.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="MarketChanges.DataContracts.Exceptions.EntityNotFoundException">
+    <Position X="2.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="MarketChanges.DataContracts.Exceptions.KnownException">
+    <Position X="0.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="MarketChanges.Data.DataContext.Conventions.EnumConvention">
+    <Position X="9.25" Y="1" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MarketChanges.Data.DataContext.SessionFactoryProvider">
+    <Position X="4" Y="2.75" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MarketChanges.Data.GenericRepositoryBase&lt;TId&gt;">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MarketChanges.Data.Repository">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
   </Class>
   <Interface Name="MarketChanges.DataContracts.IGenericRepository&lt;TId&gt;">
     <Position X="4" Y="4.75" Width="1.5" />
