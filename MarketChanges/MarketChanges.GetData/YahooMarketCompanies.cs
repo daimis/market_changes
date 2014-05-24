@@ -47,7 +47,7 @@ namespace MarketChanges.GetData
                     {
                         XAttribute company = w.Attribute("name");
                         XAttribute symbol = w.Attribute("symbol");
-                        companiesNames.Add(symbol.Value);
+                        companiesNames.Add(company.Value);
                         companiesSymbol.Add(symbol.Value);
                     }
                 }
